@@ -12,6 +12,11 @@ app.get('/', (req, res) => {
   res.status(200).send(`API is built by ILF Football</br>`);
 });
 
+app.get('/api/callback_zalo', (req, res) => {
+  console.log({req, res});
+  res.status(200).send({result: "ok"});
+});
+
 app.post('/api/matches', (req, res) => {
   var query = req.body;
   console.log(query);
