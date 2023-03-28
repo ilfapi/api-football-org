@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/callback_zalo', (req, res) => {
-  console.log({req, res});
+  console.log("query", JSON.stringify(req.query));
   res.status(200).send({result: "ok"});
 });
 
