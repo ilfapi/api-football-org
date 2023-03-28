@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 
 app.get('/api/callback_zalo', (req, res) => {
   console.log({req, res});
-  res.status(200).send({result: "ok"});
+  res.status(200).send({result: {req, res}});
 });
 
 app.post('/api/matches', (req, res) => {
