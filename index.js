@@ -17,6 +17,10 @@ app.get('/api/callback_zalo', (req, res) => {
   res.status(200).send({result: "ok"});
 });
 
+app.get('/zalo_verifierPS2k6A_8905kthm1fF063bJlZ52ua5OBDZO.html', (req, res) => {
+  res.sendFile(__dirname+"/zalo_verifierPS2k6A_8905kthm1fF063bJlZ52ua5OBDZO.html");
+});
+
 app.get('/zalo_verifierEVoRTxk38KnlXhL4i_aY773zemgSZ75MEJ8.html', (req, res) => {
   res.sendFile(__dirname+"/zalo_verifierEVoRTxk38KnlXhL4i_aY773zemgSZ75MEJ8.html");
 });
