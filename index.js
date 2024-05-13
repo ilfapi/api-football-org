@@ -88,6 +88,65 @@ app.get('/api/list_match', (req, res) => {
   });
 })
 
+app.get("/api/hof/get", (req, res) => {
+    var query = req.body;
+    var config = {
+        method: "GET",
+        url: "https://ranking.fconline.garena.vn/api/hof/get",
+    };
+
+    axios(config)
+        .then(function (response) {
+            res.status(200).send(response.data);
+        })
+        .catch(function (error) {
+            res.status(400).send({ status: "fail" });
+        });
+});
+
+app.get("/api/game/get", (req, res) => {
+    var query = req.body;
+    var config = {
+        method: "GET",
+        url: "https://ranking.fconline.garena.vn/api/game/get",
+    };
+
+    axios(config)
+        .then(function (response) {
+            res.status(200).send(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+            res.status(400).send({ status: "fail" });
+        });
+});
+
+app.post("/api/user/search", (req, res) => {
+    
+    let data = JSON.stringify({
+        "mode": req.body.mode,
+        "month": req.body.month,
+        "text": req.body.text,
+    });
+
+    var config = {
+        method: "POST",
+        maxBodyLength: Infinity,
+        headers: { 
+            'Content-Type': 'application/json'
+        },
+        url: "https://ranking.fconline.garena.vn/api/user/search",
+        data: data
+    };
+
+    axios(config)
+        .then(function (response) {
+            res.status(200).send(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+            res.status(400).send({ status: "fail" });
+        });
+});
+
 app.listen(PORT, () => {
   console.log(`server started on port ${PORT}`);
 });
