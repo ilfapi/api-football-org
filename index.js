@@ -148,6 +148,7 @@ app.post("/api/user/search", (req, res) => {
 });
 
 app.post("/api2/fcodb", (req, res) => {
+    console.log("REQUEST: /API2/FCODB", JSON.stringify(req))
     var config = {
         method: "GET",
         maxBodyLength: Infinity,
@@ -177,6 +178,7 @@ app.post("/api2/fcodb", (req, res) => {
 
     axios(config)
         .then(function (response) {
+          console.log("RESPONSE: /API2/FCODB", JSON.stringify(response))
             res.status(200).send({
                 status: "successful",
                 payload: response.data.db
