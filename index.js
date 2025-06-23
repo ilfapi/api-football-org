@@ -147,6 +147,125 @@ app.post("/api/user/search", (req, res) => {
         });
 });
 
+app.post("/api2/fcodb", (req, res) => {
+    var config = {
+        method: "GET",
+        maxBodyLength: Infinity,
+        headers: { 
+            'accept': 'application/json, text/plain, */*', 
+            'accept-language': 'en-US,en;q=0.9,vi;q=0.8', 
+            'cookie': '_ga=GA1.2.1838188061.1714266606; sqslot={%22f%22:%224222%22%2C%22p%22:{%22cp10%22:%22aorbvndm%22%2C%22cp11%22:%22zwwaayll%22}%2C%22g%22:{%22cp10%22:%227%22%2C%22cp11%22:%226%22}}; __gads=ID=9b868b012f9cecbc:T=1713983535:RT=1719161211:S=ALNI_MbKx35VsSh-bsv4NsCgNsg8JGUoMw; __gpi=UID=00000df96488dff5:T=1713983535:RT=1719161211:S=ALNI_MZYdSyiT44UVtMuK2cJEnfa-KoQaw; __eoi=ID=cc208836d92f4c02:T=1713983535:RT=1719161211:S=AA-AfjZz-OR3qY8Aa2AIC7eJrT5S; FCNEC=%5B%5B%22AKsRol8Nv7faCMemkYnUNKJkmk8GeuDEh3lZ1dRWi31ceAheLVK9C7UA1t-YMA3wsOfh0zh7B80rzFpgkin8Vh1Svb_Cf1EDsPmKyaiLiNLYFGU7CPbV82LwRdgTlPiUfYkA4bM1GUjt-rwaka1_GDPVrbWlqUk4hg%3D%3D%22%5D%5D', 
+            'dnt': '1', 
+            'priority': 'u=1, i', 
+            'referer': 'https://vn.fifaaddict.com/', 
+            'sec-ch-ua': '"Not/A)Brand";v="8", "Chromium";v="126", "Microsoft Edge";v="126"', 
+            'sec-ch-ua-mobile': '?0', 
+            'sec-ch-ua-platform': '"Windows"', 
+            'sec-fetch-dest': 'empty', 
+            'sec-fetch-mode': 'cors', 
+            'sec-fetch-site': 'same-origin', 
+            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0', 
+            'x-requested-with': 'XMLHttpRequest', 
+            'sec-browsing-topics': '();p=P0000000000000000000000000000000', 
+            'sec-fetch-user': '?1', 
+            'upgrade-insecure-requests': '1', 
+            'content-type': 'application/json', 
+            'origin': 'https://vn.fifaaddict.com'
+        },
+        url: "https://vn.fifaaddict.com/api2?q=fo4db&locale=vn"
+    };
+
+    axios(config)
+        .then(function (response) {
+            res.status(200).send({
+                status: "successful",
+                payload: response.data.db
+            });
+        })
+        .catch(function (error) {
+            res.status(400).send({ status: "fail" });
+        });
+});
+
+app.post("/api2/:id", (req, res) => {
+    let fo4pid = req.params.id
+    console.log("api2/:id", fo4pid)
+    var config = {
+        method: "GET",
+        maxBodyLength: Infinity,
+        headers: { 
+            'accept': 'application/json, text/plain, */*', 
+            'accept-language': 'en-US,en;q=0.9,vi;q=0.8', 
+            'cookie': '_ga=GA1.2.1838188061.1714266606; sqslot={%22f%22:%224222%22%2C%22p%22:{%22cp10%22:%22aorbvndm%22%2C%22cp11%22:%22zwwaayll%22}%2C%22g%22:{%22cp10%22:%227%22%2C%22cp11%22:%226%22}}; __gads=ID=9b868b012f9cecbc:T=1713983535:RT=1719161211:S=ALNI_MbKx35VsSh-bsv4NsCgNsg8JGUoMw; __gpi=UID=00000df96488dff5:T=1713983535:RT=1719161211:S=ALNI_MZYdSyiT44UVtMuK2cJEnfa-KoQaw; __eoi=ID=cc208836d92f4c02:T=1713983535:RT=1719161211:S=AA-AfjZz-OR3qY8Aa2AIC7eJrT5S; FCNEC=%5B%5B%22AKsRol8Nv7faCMemkYnUNKJkmk8GeuDEh3lZ1dRWi31ceAheLVK9C7UA1t-YMA3wsOfh0zh7B80rzFpgkin8Vh1Svb_Cf1EDsPmKyaiLiNLYFGU7CPbV82LwRdgTlPiUfYkA4bM1GUjt-rwaka1_GDPVrbWlqUk4hg%3D%3D%22%5D%5D', 
+            'dnt': '1', 
+            'priority': 'u=1, i', 
+            'referer': 'https://vn.fifaaddict.com/', 
+            'sec-ch-ua': '"Not/A)Brand";v="8", "Chromium";v="126", "Microsoft Edge";v="126"', 
+            'sec-ch-ua-mobile': '?0', 
+            'sec-ch-ua-platform': '"Windows"', 
+            'sec-fetch-dest': 'empty', 
+            'sec-fetch-mode': 'cors', 
+            'sec-fetch-site': 'same-origin', 
+            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0', 
+            'x-requested-with': 'XMLHttpRequest', 
+            'sec-browsing-topics': '();p=P0000000000000000000000000000000', 
+            'sec-fetch-user': '?1', 
+            'upgrade-insecure-requests': '1', 
+            'content-type': 'application/json', 
+            'origin': 'https://vn.fifaaddict.com'
+        },
+        url: `https://vn.fifaaddict.com/api2?fo4pid=pid${fo4pid}&locale=vn`
+    };
+
+    axios(config)
+        .then(function (response) {
+            res.status(200).send({
+                status: "successful",
+                payload: response.data
+            });
+        })
+        .catch(function (error) {
+            res.status(400).send({ status: "fail" });
+        });
+});
+
+app.get("/api/get_avatar", async (req, res) => {
+    const imageUrl = req.query.url;
+    try {
+        const response = await axios.head(imageUrl);
+        if (response.status >= 200 && response.status < 400) {
+            res.status(200).send({
+                status: "success",
+                payload: imageUrl
+            });
+        } else {
+            res.status(200).send({
+                status: "fail",
+                payload: imageUrl
+            });
+        }
+    } catch (error) {
+        if (error.response) {
+            res.status(200).send({
+                status: "fail",
+                payload: imageUrl
+            });
+        } else if (error.request) {
+            res.status(200).send({
+                status:"fail",
+                payload: imageUrl
+            });
+        } else {
+
+            res.status(200).send({
+                status: "fail",
+                payload: imageUrl
+            });
+        }
+    }
+    
+});
+
 app.listen(PORT, () => {
   console.log(`server started on port ${PORT}`);
 });
