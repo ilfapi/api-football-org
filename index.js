@@ -147,7 +147,7 @@ app.post("/api/user/search", (req, res) => {
         });
 });
 
-app.post("/api2/fcodb", (req, res) => {
+app.get("/api2/fcodb", (req, res) => {
     var config = {
         method: "GET",
         maxBodyLength: Infinity,
